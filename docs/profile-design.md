@@ -32,3 +32,20 @@ python tools/build_profile.py
 ```
 
 The generator reads the pinned files in `assets/source/` and writes the two shell SVGs. Keep the wordmark geometry intact. Inspect both outputs at their rendered sizes before publishing.
+
+## Verification
+
+Reviewed on November 27, 2026:
+
+- An independent visual review passed the desktop artwork and the mobile artwork rendered at 320px wide, with no clipping or collisions.
+- GitHub rendered the desktop SVG at 838px wide from the candidate branch. The image loaded at its expected 1440px intrinsic width, and the two-file example link resolved to its directory and rendered instructions.
+- All nine external links returned HTTP 200; the mail, chat and app anchors exist. Relative links resolve to repository files or directories.
+- The displayed commands reproduce the two source files' diff. All original numerical values and preserved source files were checked against the baseline.
+- The candidate had no configured status checks or workflow runs; validation was performed directly rather than attributed to CI.
+
+Reviewed artwork SHA-256:
+
+```text
+shell-v2.svg         d823d1f16d1b1762c407664be1dcb4d7bb64532bfd57942fae253d92a9148e83
+shell-mobile-v2.svg  550b1cc6f7a523c83e49237428e57f244de3d5e4656954fe46ec613440e8dc26
+```
